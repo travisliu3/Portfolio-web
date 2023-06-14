@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { Card, Button } from 'react-bootstrap';
-import CPrj2 from '../public/C++2.png';
-import CPrj3 from '../public/C++3.png';
-import web422 from '../public/web.png';
-import web422S from '../public/WebService.png';
+import CPrj2 from '../public/C-2.ico';
+import CPrj3 from '../public/C-3.ico';
+import web422 from '../public/web.ico';
+import web422S from '../public/WebService.ico';
 import Image from 'next/image';
 
 export default function ProjectCard(props) {
