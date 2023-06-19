@@ -2,11 +2,13 @@ import React from 'react';
 import { Container, Row, Button, Col, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import Email from '../lib/smtp.js';
+import { useRouter } from 'next/router';
 
 export default function Contact() {
 
     // 53CE9B9542DFEC56CF5D89266B958B519D3A
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const router = useRouter();
 
     async function submitForm(data) {
         let ebody = `
@@ -15,6 +17,30 @@ export default function Contact() {
     <p>Phone: ${data.phone}</p>
     <p>Message: ${data.message}</p>
     `
+        let ethank = `
+        <p>Dear ${data.name}</p>
+        </br>
+        <p>I hope this message finds you well. I wanted to take a moment to express my sincerest gratitude for taking the time to fill out the contact form on my website. Your interest in considering me for potential employment opportunities means a great deal to me.</p>
+        </br>
+        <p>I am truly honored that you have taken an interest in my skills, qualifications, and experiences. Your decision to reach out and explore the possibility of working together speaks volumes about your company and the values you uphold.</p>
+        </br>
+        <p>I assure you that I am eagerly looking forward to the opportunity to connect with you further. I am confident that my unique blend of skills, dedication, and enthusiasm would make a valuable contribution to your organization.</p>
+        </br></br>
+        <p>Once again, thank you for reaching out and expressing interest in my professional journey. I genuinely appreciate your consideration, and I am excited about the potential possibilities that lie ahead. I look forward to connecting with you soon to discuss how I can contribute to your team.</p>
+        </br>
+        <p>With gratitude,</p>
+        </br>
+        Travis Liu
+    `
+        Email.send({
+            SecureToken: process.env.NEXT_PUBLIC_SMTP_SECURITY_TOKEN,
+            To: data.email,
+            From: "travisliu3@gmail.com",
+            Subject: "Thank you for contacting Travis Liu",
+            Body: ethank
+        }).then(
+            message => console.log('message sent')
+        );
         Email.send({
             SecureToken: process.env.NEXT_PUBLIC_SMTP_SECURITY_TOKEN,
             To: 'travisliu3@gmail.com',
@@ -22,7 +48,10 @@ export default function Contact() {
             Subject: "Prospcective employer " + data.name,
             Body: ebody
         }).then(
-            message => alert(message)
+            message => {
+                alert('Thank you for contacting, I will reply atmost in 2 bussiness days.');
+                router.push('/');;
+            }
         );
     }
 

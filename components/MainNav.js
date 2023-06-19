@@ -1,10 +1,11 @@
 import { Button, Container, Form, Nav, Navbar, NavDropdown, Row, Col } from 'react-bootstrap';
-import { useRouter } from 'next/router'
-import Link from "next/link"
-import { useState } from 'react'
+import Link from "next/link";
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { usePathname, usePathsme } from 'next/navigation';
 
 export default function MainNav() {
-
+    const path = usePathname();
     const [isWorkClicked, setisWorkClicked] = useState(true);
     const [intervalID, setIntervalID] = useState();
 
@@ -52,50 +53,74 @@ export default function MainNav() {
                 <br />
                 <br />
                 <Row>
-                    <Navbar.Brand className="color={black} fs-2 fw-bold">Travis Liu</Navbar.Brand>
+                    <Navbar.Brand className="fs-2 fw-bold">Travis Liu</Navbar.Brand>
                 </Row>
                 <br />
                 <br />
                 <Row>
-                    <Nav className="me-auto">
-                        <Link href="/" passHref legacyBehavior >
-                            <Nav.Link href="/" onClick={handleNavLinkClick}>Home</Nav.Link>
-                        </Link>
+                    <Nav className={`${'/' === path ? "fw-bold" : ""}`}>
+                        <motion.div
+                            whileHover={{ scale: 1.1 }}
+                        >
+                            <Link href="/" passHref legacyBehavior >
+                                <Nav.Link href="/" onClick={handleNavLinkClick}>Home</Nav.Link>
+                            </Link>
+                        </motion.div>
                     </Nav>
                 </Row>
                 <Row>
-                    <Nav className="me-auto">
-                        <Link href="/about" passHref legacyBehavior >
-                            <Nav.Link href="/about" onClick={handleNavLinkClick}>About</Nav.Link>
-                        </Link>
+                    <Nav className={`${'/about' === path ? "fw-bold" : ""}`}>
+                        <motion.div
+                            whileHover={{ scale: 1.1 }}
+                        >
+                            <Link href="/about" passHref legacyBehavior >
+                                <Nav.Link href="/about" onClick={handleNavLinkClick}>About</Nav.Link>
+                            </Link>
+                        </motion.div>
                     </Nav>
                 </Row>
                 <Row>
-                    <Nav className="me-auto">
-                        <Link href="/education" passHref legacyBehavior >
-                            <Nav.Link href="/education" onClick={handleNavLinkClick}>Education</Nav.Link>
-                        </Link>
+                    <Nav className={`${'/education' === path ? "fw-bold" : ""}`}>
+                        <motion.div
+                            whileHover={{ scale: 1.1 }}
+                        >
+                            <Link href="/education" passHref legacyBehavior >
+                                <Nav.Link href="/education" onClick={handleNavLinkClick}>Education</Nav.Link>
+                            </Link>
+                        </motion.div>
                     </Nav>
                 </Row>
                 <Row>
-                    <Nav className="me-auto">
-                        <Link href="/work" passHref legacyBehavior >
-                            <Nav.Link href="/work" onClick={listOfSkills}>Work Experience</Nav.Link>
-                        </Link>
+                    <Nav className={`${'/work' === path ? "fw-bold" : ""}`}>
+                        <motion.div
+                            whileHover={{ scale: 1.1 }}
+                        >
+                            <Link href="/work" passHref legacyBehavior >
+                                <Nav.Link href="/work" onClick={listOfSkills}>Work Experience</Nav.Link>
+                            </Link>
+                        </motion.div>
                     </Nav>
                 </Row>
                 <Row>
-                    <Nav className="me-auto">
-                        <Link href="/project" passHref legacyBehavior >
-                            <Nav.Link href="/project" onClick={handleNavLinkClick}>Projects</Nav.Link>
-                        </Link>
+                    <Nav className={`${'/project' === path ? "fw-bold" : ""}`}>
+                        <motion.div
+                            whileHover={{ scale: 1.1 }}
+                        >
+                            <Link href="/project" passHref legacyBehavior >
+                                <Nav.Link href="/project" onClick={handleNavLinkClick}>Projects</Nav.Link>
+                            </Link>
+                        </motion.div>
                     </Nav>
                 </Row>
                 <Row>
-                    <Nav className="me-auto">
-                        <Link href="/contact" passHref legacyBehavior >
-                            <Nav.Link href="/contact" onClick={handleNavLinkClick}>Contact me</Nav.Link>
-                        </Link>
+                    <Nav className={`${'/contact' === path ? "fw-bold" : ""}`}>
+                        <motion.div
+                            whileHover={{ scale: 1.1 }}
+                        >
+                            <Link href="/contact" passHref legacyBehavior >
+                                <Nav.Link href="/contact" onClick={handleNavLinkClick}>Contact me</Nav.Link>
+                            </Link>
+                        </motion.div>
                     </Nav>
                 </Row>
                 <br />
@@ -112,7 +137,7 @@ export default function MainNav() {
                 <br />
                 <br />
                 <br />
-            </Navbar>
+            </Navbar >
         </>
     );
 }
