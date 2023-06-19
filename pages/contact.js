@@ -16,7 +16,7 @@ export default function Contact() {
     <p>Message: ${data.message}</p>
     `
         Email.send({
-            SecureToken: process.env.SMTP_SECURITY_TOKEN,
+            SecureToken: process.env.NEXT_PUBLIC_SMTP_SECURITY_TOKEN,
             To: 'travisliu3@gmail.com',
             From: "travisliu3@gmail.com",
             Subject: "Prospcective employer " + data.name,
