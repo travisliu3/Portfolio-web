@@ -7,42 +7,54 @@ import { usePathname, usePathsme } from 'next/navigation';
 export default function MainNav() {
     const path = usePathname();
     const [isWorkClicked, setisWorkClicked] = useState(true);
-    const [intervalID, setIntervalID] = useState();
+    var intervalID;
+    var timeoutID;
+    var waitTime = 100;
 
     function listOfSkills() {
         if (isWorkClicked) {
-            setIntervalID(setInterval(flashText, 100));
+            intervalID = setInterval(flashText, waitTime);
         }
         setisWorkClicked(false);
     }
 
     function handleNavLinkClick() {
+        skill = 0;
+        index = 0;
         setisWorkClicked(true);
         clearInterval(intervalID);
+        clearTimeout(timeoutID);
     }
 
-    function wait(ms) {
-        var start = new Date().getTime();
-        var end = start;
-        while (end < start + ms) {
-            end = new Date().getTime();
-        }
-    }
     let skill = 0;
     let index = 0;
-    let arrayofskills = ['JavaScript', 'C/C++', 'Python', 'SQL', 'Data Modelling Process', 'DSA', 'Web Development Frameworks']
+    let arrayofskills = ['JavaScript', 'C/C++', 'Python', 'SQL', 'Data Modelling Process', 'DSA', 'Web Development Frameworks', 'Object-Orientation']
     function flashText() {
-        const arraySkill = Array.from(arrayofskills[skill]);
+        const arraySkill = arrayofskills[skill];
         let len = arraySkill.length;
-        document.getElementById("my_skills").innerText += arraySkill[index];
+        if (arraySkill[index] && document.getElementById("my_skills")) {
+            document.getElementById("my_skills").innerHTML += arraySkill[index];
+        }
+        else {
+            return
+        }
         index++;
-        if (index > len) {
+        if (index > len - 1) {
             index = 0;
             skill++;
-            wait(2000);
-            document.getElementById("my_skills").innerHTML = '';
+            clearInterval(intervalID);
+            setTimeout(() => {
+                if (document.getElementById("my_skills")) {
+                    document.getElementById("my_skills").innerHTML = '&nbsp';
+                }
+                else {
+                    return
+                }
+                setisWorkClicked(true);
+                listOfSkills();
+            }, 2000);
         }
-        if (skill > 6) {
+        if (skill > arrayofskills.length - 1) {
             skill = 0;
         }
     }
