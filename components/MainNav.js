@@ -4,27 +4,28 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { usePathname, usePathsme } from 'next/navigation';
 
+let intervalID = 0;
+var timeoutID;
+
 export default function MainNav() {
     const path = usePathname();
     const [isWorkClicked, setisWorkClicked] = useState(true);
-    var intervalID;
-    var timeoutID;
     var waitTime = 100;
 
     function listOfSkills() {
+        clearInterval(intervalID);
+        console.log('interval clear ' + intervalID);
         if (isWorkClicked) {
             intervalID = setInterval(flashText, waitTime);
+            console.log(intervalID);
         }
         setisWorkClicked(false);
     }
 
     function handleNavLinkClick() {
-        skill = 0;
-        index = 0;
         setisWorkClicked(true);
-        console.log(intervalID);
-        console.log(timeoutID);
         clearInterval(intervalID);
+        console.log('interval clear ' + intervalID);
         clearTimeout(timeoutID);
     }
 
@@ -45,7 +46,8 @@ export default function MainNav() {
             index = 0;
             skill++;
             clearInterval(intervalID);
-            setTimeout(() => {
+            console.log('interval clear ' + intervalID);
+            timeoutID = setTimeout(() => {
                 if (document.getElementById("my_skills")) {
                     document.getElementById("my_skills").innerHTML = '&nbsp';
                 }
@@ -53,9 +55,6 @@ export default function MainNav() {
                     return
                 }
                 setisWorkClicked(true);
-                clearInterval(intervalID);
-                console.log(intervalID);
-                console.log(timeoutID);
                 listOfSkills();
             }, 2000);
         }
