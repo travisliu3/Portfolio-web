@@ -22,6 +22,8 @@ export default function MainNav() {
         skill = 0;
         index = 0;
         setisWorkClicked(true);
+        console.log(intervalID);
+        console.log(timeoutID);
         clearInterval(intervalID);
         clearTimeout(timeoutID);
     }
@@ -51,6 +53,9 @@ export default function MainNav() {
                     return
                 }
                 setisWorkClicked(true);
+                clearInterval(intervalID);
+                console.log(intervalID);
+                console.log(timeoutID);
                 listOfSkills();
             }, 2000);
         }
