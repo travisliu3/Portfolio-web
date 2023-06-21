@@ -58,8 +58,9 @@ export default function Contact() {
                 <Row className="gy-4">
                     <h1>Contact Me</h1>
                     <p>Thank you for visiting my website. I would love to hear from you! If you have any questions,
-                        feedback, or collaboration opportunities, please don't hesitate to reach out to me using the contact form below.
-                        I appreciate your time and look forward to connecting with you soon.</p>
+                        feedback, or collaboration opportunities, please don't hesitate to reach out to me using the
+                        contact form below or through my social media links or email.</p>
+                    <p>I appreciate your time and look forward to connecting with you soon.</p>
                 </Row>
             </Container>
             <br />

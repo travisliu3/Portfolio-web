@@ -10,6 +10,7 @@ var timeoutID;
 export default function MainNav() {
     const path = usePathname();
     const [isWorkClicked, setisWorkClicked] = useState(true);
+    const [isExpanded, setisExpanded] = useState(false);
     var waitTime = 100;
 
     function listOfSkills() {
@@ -22,10 +23,14 @@ export default function MainNav() {
         setisWorkClicked(false);
     }
 
+    function toggleNav(e) {
+        setisExpanded(expand => expand = !expand);
+    }
+
     function handleNavLinkClick() {
+        setisExpanded(false);
         setisWorkClicked(true);
         clearInterval(intervalID);
-        console.log('interval clear ' + intervalID);
         clearTimeout(timeoutID);
     }
 
@@ -65,81 +70,84 @@ export default function MainNav() {
 
     return (
         <>
-            <Navbar class="text-center">
-                <br />
-                <br />
-                <Row>
+            <Navbar expanded={isExpanded} class="text-center" bg="light" expand="lg">
+                <Container>
+                    <br />
+                    <br />
                     <Navbar.Brand className="fs-2 fw-bold">Travis Liu</Navbar.Brand>
-                </Row>
-                <br />
-                <br />
-                <Row>
-                    <Nav className={`${'/' === path ? "fw-bold" : ""}`}>
-                        <motion.div
-                            whileHover={{ scale: 1.1 }}
-                        >
-                            <Link href="/" passHref legacyBehavior >
-                                <Nav.Link href="/" onClick={handleNavLinkClick}>Home</Nav.Link>
-                            </Link>
-                        </motion.div>
-                    </Nav>
-                </Row>
-                <Row>
-                    <Nav className={`${'/about' === path ? "fw-bold" : ""}`}>
-                        <motion.div
-                            whileHover={{ scale: 1.1 }}
-                        >
-                            <Link href="/about" passHref legacyBehavior >
-                                <Nav.Link href="/about" onClick={handleNavLinkClick}>About</Nav.Link>
-                            </Link>
-                        </motion.div>
-                    </Nav>
-                </Row>
-                <Row>
-                    <Nav className={`${'/education' === path ? "fw-bold" : ""}`}>
-                        <motion.div
-                            whileHover={{ scale: 1.1 }}
-                        >
-                            <Link href="/education" passHref legacyBehavior >
-                                <Nav.Link href="/education" onClick={handleNavLinkClick}>Education</Nav.Link>
-                            </Link>
-                        </motion.div>
-                    </Nav>
-                </Row>
-                <Row>
-                    <Nav className={`${'/work' === path ? "fw-bold" : ""}`}>
-                        <motion.div
-                            whileHover={{ scale: 1.1 }}
-                        >
-                            <Link href="/work" passHref legacyBehavior >
-                                <Nav.Link href="/work" onClick={listOfSkills}>Work Experience</Nav.Link>
-                            </Link>
-                        </motion.div>
-                    </Nav>
-                </Row>
-                <Row>
-                    <Nav className={`${'/project' === path ? "fw-bold" : ""}`}>
-                        <motion.div
-                            whileHover={{ scale: 1.1 }}
-                        >
-                            <Link href="/project" passHref legacyBehavior >
-                                <Nav.Link href="/project" onClick={handleNavLinkClick}>Projects</Nav.Link>
-                            </Link>
-                        </motion.div>
-                    </Nav>
-                </Row>
-                <Row>
-                    <Nav className={`${'/contact' === path ? "fw-bold" : ""}`}>
-                        <motion.div
-                            whileHover={{ scale: 1.1 }}
-                        >
-                            <Link href="/contact" passHref legacyBehavior >
-                                <Nav.Link href="/contact" onClick={handleNavLinkClick}>Contact me</Nav.Link>
-                            </Link>
-                        </motion.div>
-                    </Nav>
-                </Row>
-                <br />
+                    <br />
+                    <br />
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={toggleNav} />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Row>
+                            <Nav className={`${'/' === path ? "fw-bold" : ""}`}>
+                                <motion.div
+                                    whileHover={{ scale: 1.1 }}
+                                >
+                                    <Link href="/" passHref legacyBehavior >
+                                        <Nav.Link href="/" onClick={handleNavLinkClick}>Home</Nav.Link>
+                                    </Link>
+                                </motion.div>
+                            </Nav>
+                        </Row>
+                        <Row>
+                            <Nav className={`${'/about' === path ? "fw-bold" : ""}`}>
+                                <motion.div
+                                    whileHover={{ scale: 1.1 }}
+                                >
+                                    <Link href="/about" passHref legacyBehavior >
+                                        <Nav.Link href="/about" onClick={handleNavLinkClick}>About</Nav.Link>
+                                    </Link>
+                                </motion.div>
+                            </Nav>
+                        </Row>
+                        <Row>
+                            <Nav className={`${'/education' === path ? "fw-bold" : ""}`}>
+                                <motion.div
+                                    whileHover={{ scale: 1.1 }}
+                                >
+                                    <Link href="/education" passHref legacyBehavior >
+                                        <Nav.Link href="/education" onClick={handleNavLinkClick}>Education</Nav.Link>
+                                    </Link>
+                                </motion.div>
+                            </Nav>
+                        </Row>
+                        <Row>
+                            <Nav className={`${'/work' === path ? "fw-bold" : ""}`}>
+                                <motion.div
+                                    whileHover={{ scale: 1.1 }}
+                                >
+                                    <Link href="/work" passHref legacyBehavior >
+                                        <Nav.Link href="/work" onClick={listOfSkills}>Work Experience</Nav.Link>
+                                    </Link>
+                                </motion.div>
+                            </Nav>
+                        </Row>
+                        <Row>
+                            <Nav className={`${'/project' === path ? "fw-bold" : ""}`}>
+                                <motion.div
+                                    whileHover={{ scale: 1.1 }}
+                                >
+                                    <Link href="/project" passHref legacyBehavior >
+                                        <Nav.Link href="/project" onClick={handleNavLinkClick}>Projects</Nav.Link>
+                                    </Link>
+                                </motion.div>
+                            </Nav>
+                        </Row>
+                        <Row>
+                            <Nav className={`${'/contact' === path ? "fw-bold" : ""}`}>
+                                <motion.div
+                                    whileHover={{ scale: 1.1 }}
+                                >
+                                    <Link href="/contact" passHref legacyBehavior >
+                                        <Nav.Link href="/contact" onClick={handleNavLinkClick}>Contact me</Nav.Link>
+                                    </Link>
+                                </motion.div>
+                            </Nav>
+                        </Row>
+                        <br />
+                    </Navbar.Collapse>
+                </Container>
             </Navbar >
         </>
     );
