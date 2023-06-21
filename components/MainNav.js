@@ -65,7 +65,7 @@ export default function MainNav() {
 
     return (
         <>
-            <Navbar class="text-center bg-light">
+            <Navbar class="text-center">
                 <br />
                 <br />
                 <Row>
@@ -139,19 +139,6 @@ export default function MainNav() {
                         </motion.div>
                     </Nav>
                 </Row>
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
                 <br />
             </Navbar >
         </>

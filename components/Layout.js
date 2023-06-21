@@ -6,12 +6,12 @@ export default function Layout(props) {
     return (
         <>
             <Row>
-                <Col sm={3}>
+                <Col lg={3} className='bg-light'>
                     <PageWrapper>
                         <MainNav />
                     </PageWrapper>
                 </Col>
-                <Col sm={9}>
+                <Col lg={9} className='bg-secondary'>
                     {props.children}
                 </Col>
             </Row>

@@ -82,6 +82,8 @@ export default function Work() {
                     </Card.Body>
                 </Card>
             </Col>
+            <br />
+            <br />
         </Container>
 
     );

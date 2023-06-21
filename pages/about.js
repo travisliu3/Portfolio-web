@@ -39,6 +39,8 @@ export default function About() {
                     development, handling both front-end and back-end components to create
                     seamless and robust applications.</p>
             </Row>
+            <br />
+            <br />
         </Container>
 
     );

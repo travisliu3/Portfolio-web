@@ -42,6 +42,8 @@ export default function Home() {
           <a className="btn" href="./Travis Resume 2023.docx" download="TravisResume">My Resume</a>
         </Button>
       </Container>
+      <br />
+      <br />
     </>
   )
 }

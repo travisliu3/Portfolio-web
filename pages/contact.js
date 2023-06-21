@@ -105,6 +105,8 @@ export default function Contact() {
                     </Col>
                 </Row>
             </Form>
+            <br />
+            <br />
         </>
     );
 }
