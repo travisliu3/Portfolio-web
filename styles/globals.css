@@ -50,27 +50,11 @@ a:focus {
 /* ---------------------------------------------------
     SIDEBAR STYLE
 ----------------------------------------------------- */
+
 .wrapper {
     display: flex;
     width: 100%;
-    perspective: 1500px;
-    text-align: center;
-}
-
-#sidebar {
-    width: 350px;
-    top: 0;
-    left: 0;
-    z-index: 999;
-    background: #7386D5;
-    color: #fff;
-    transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
-    transform-origin: bottom left;
-}
-
-/* .wrapper {
-    display: flex;
-    width: 100%;
+    align-items: stretch;
     perspective: 1500px;
 }
 
@@ -82,7 +66,7 @@ a:focus {
     color: #fff;
     transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
     transform-origin: bottom left;
-} */
+}
 
 #sidebar.active {
     margin-left: -250px;
@@ -218,6 +202,8 @@ a.article:hover {
 @media (max-width: 768px) {
     #sidebar {
         margin-left: -250px;
+        width: 100%;
+        min-width: 100%;
         transform: rotateY(90deg);
     }
 
