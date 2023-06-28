@@ -128,7 +128,7 @@ export default function Layout(props) {
                                             <motion.div
                                                 whileHover={{ scale: 1.1 }}
                                             >
-                                                <Link href="/about" passHref legacyBehavior >
+                                                <Link href="/education" passHref legacyBehavior >
                                                     <Nav.Link className={`${'/education' === path ? "fw-bold nav-link" : "nav-link"}`} href="/education" onClick={handleNavLinkClick}>Education</Nav.Link>
                                                 </Link>
                                             </motion.div>
