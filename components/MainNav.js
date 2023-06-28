@@ -1,8 +1,8 @@
-import { Button, Container, Form, Nav, Navbar, NavDropdown, Row, Col } from 'react-bootstrap';
+import { Container, Nav, Navbar, Row } from 'react-bootstrap';
 import Link from "next/link";
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { usePathname, usePathsme } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { useAtom } from 'jotai';
 import { sidebarAtom } from '../store';
 
