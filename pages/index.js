@@ -39,7 +39,7 @@ export default function Home() {
         </Row>
         <br />
         <Button type="button" variant="outline-dark" className="btn btn-floating">
-          <a className="btn" href="./Travis Resume 2023.docx" download="TravisResume">My Resume</a>
+          <a className="btn" href="https://docs.google.com/document/d/1JA15dv7o4OG5xqljaS52mykiDGDDmg_r/edit" target='_blank'>My Resume</a>
         </Button>
       </Container>
       <br />
