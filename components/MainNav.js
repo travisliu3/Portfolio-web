@@ -18,10 +18,8 @@ export default function MainNav() {
 
     function listOfSkills() {
         clearInterval(intervalID);
-        console.log('interval clear ' + intervalID);
         if (isWorkClicked) {
             intervalID = setInterval(flashText, waitTime);
-            console.log(intervalID);
         }
         setisWorkClicked(false);
     }
@@ -49,7 +47,6 @@ export default function MainNav() {
             index = 0;
             skill++;
             clearInterval(intervalID);
-            console.log('interval clear ' + intervalID);
             timeoutID = setTimeout(() => {
                 if (document.getElementById("my_skills")) {
                     document.getElementById("my_skills").innerHTML = '&nbsp';

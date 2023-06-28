@@ -2,7 +2,8 @@ import MainNav from './MainNav';
 import PageWrapper from './page-wrapper';
 import { sidebarAtom } from '../store';
 import { useAtom } from 'jotai';
-import { Button, Navbar, Nav, Col, Row } from 'react-bootstrap';
+import { motion } from 'framer-motion';
+import { Button, Navbar, Nav, Col, Row, Container } from 'react-bootstrap';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
@@ -21,10 +22,8 @@ export default function Layout(props) {
 
     function listOfSkills() {
         clearInterval(intervalID);
-        console.log('interval clear ' + intervalID);
         if (isWorkClicked) {
             intervalID = setInterval(flashText, waitTime);
-            console.log(intervalID);
         }
         setisWorkClicked(false);
     }
@@ -52,7 +51,6 @@ export default function Layout(props) {
             index = 0;
             skill++;
             clearInterval(intervalID);
-            console.log('interval clear ' + intervalID);
             timeoutID = setTimeout(() => {
                 if (document.getElementById("my_skills")) {
                     document.getElementById("my_skills").innerHTML = '&nbsp';
@@ -88,41 +86,77 @@ export default function Layout(props) {
                     <div id="content">
 
                         <Navbar expanded={isExpanded} bg="light" expand="lg" className="navbar navbar-light bg-light">
-                            <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={toggleNav} />
-                            <Navbar.Collapse id="basic-navbar-nav">
-                                <div class="container-fluid">
-                                    <Nav>
-                                        {!isExpanded ? (<Button id="sidebarCollapse" className={sidebarActive ? 'active navbar-btn' : 'navbar-btn'} onClick={handleSidebarToggle}>
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                        </Button>) : ('')}
+                            <Container>
+                                <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={toggleNav} />
+                                <Navbar.Collapse id="basic-navbar-nav">
+                                    <Nav className="me-auto">
+                                        {!isExpanded ? (
+                                            <Button id="sidebarCollapse" className={sidebarActive ? 'active navbar-btn' : 'navbar-btn'} onClick={handleSidebarToggle}>
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </Button>
+                                        ) : ('')}
                                     </Nav>
 
                                     <Nav>
-                                        <Row>
-                                            <div class='col'>
-                                                <Link className={`${'/' === path ? "fw-bold nav-link" : "nav-link"}`} href="/" onClick={handleNavLinkClick}>Home</Link>
-                                            </div>
-                                            <div class='col'>
-                                                <Link className={`${'/project' === path ? "fw-bold nav-link" : "nav-link"}`} href="/project" onClick={handleNavLinkClick}>Portfolio</Link>
-                                            </div>
-                                            <div class='col'>
-                                                <Link className={`${'/work' === path ? "fw-bold nav-link" : "nav-link"}`} href="/work" onClick={listOfSkills}>Work</Link>
-                                            </div>
-                                            <div class='col'>
-                                                <Link className={`${'/contact' === path ? "fw-bold nav-link" : "nav-link"}`} href="contact" onClick={handleNavLinkClick}>Contact</Link>
-                                            </div>
-                                        </Row>
+                                        <motion.div
+                                            whileHover={{ scale: 1.1 }}
+                                        >
+                                            <Link href="/" passHref legacyBehavior >
+                                                <Nav.Link className={`${'/' === path ? "fw-bold nav-link" : "nav-link"}`} href="/" onClick={handleNavLinkClick}>Home</Nav.Link>
+                                            </Link>
+                                        </motion.div>
+                                        {!isExpanded ? ('') : (
+                                            <motion.div
+                                                whileHover={{ scale: 1.1 }}
+                                            >
+                                                <Link href="/about" passHref legacyBehavior >
+                                                    <Nav.Link className={`${'/about' === path ? "fw-bold nav-link" : "nav-link"}`} href="/about" onClick={handleNavLinkClick}>About</Nav.Link>
+                                                </Link>
+                                            </motion.div>
+
+                                        )}
+                                        <motion.div
+                                            whileHover={{ scale: 1.1 }}
+                                        >
+                                            <Link href="/project" passHref legacyBehavior >
+                                                <Nav.Link className={`${'/project' === path ? "fw-bold nav-link" : "nav-link"}`} href="/project" onClick={handleNavLinkClick}>Portfolio</Nav.Link>
+                                            </Link>
+                                        </motion.div>
+                                        {!isExpanded ? ('') : (
+                                            <motion.div
+                                                whileHover={{ scale: 1.1 }}
+                                            >
+                                                <Link href="/about" passHref legacyBehavior >
+                                                    <Nav.Link className={`${'/education' === path ? "fw-bold nav-link" : "nav-link"}`} href="/education" onClick={handleNavLinkClick}>Education</Nav.Link>
+                                                </Link>
+                                            </motion.div>
+
+                                        )}
+                                        <motion.div
+                                            whileHover={{ scale: 1.1 }}
+                                        >
+                                            <Link href="/work" passHref legacyBehavior >
+                                                <Nav.Link className={`${'/work' === path ? "fw-bold nav-link" : "nav-link"}`} href="/work" onClick={listOfSkills}>Work</Nav.Link>
+                                            </Link>
+                                        </motion.div>
+                                        <motion.div
+                                            whileHover={{ scale: 1.1 }}
+                                        >
+                                            <Link href="/contact" passHref legacyBehavior >
+                                                <Nav.Link className={`${'/contact' === path ? "fw-bold nav-link" : "nav-link"}`} href="/contact" onClick={handleNavLinkClick}>Contact</Nav.Link>
+                                            </Link>
+                                        </motion.div>
                                     </Nav>
-                                </div>
-                            </Navbar.Collapse>
+                                </Navbar.Collapse>
+                            </Container>
                         </Navbar>
 
                         {props.children}
                     </div>
-                </div>
-            </PageWrapper>
+                </div >
+            </PageWrapper >
         </>
     )
 }
