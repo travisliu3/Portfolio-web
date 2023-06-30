@@ -95,7 +95,7 @@ export default function Education() {
                                 <td className='fw-bold'>Quick Delivery</td>
                                 <td>1 day($130)</td>
                                 <td>4 days($300)</td>
-                                <td>9 days($800)</td>
+                                <td>8 days($800)</td>
                             </tr>
                         </tbody>
                     </table>
