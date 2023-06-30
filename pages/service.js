@@ -33,7 +33,7 @@ export default function Education() {
                 </Row>
                 <br />
                 <Row>
-                    <table class="table table-bordered">
+                    <table class="table-bordered">
                         <thead>
                             <tr>
                                 <th></th>

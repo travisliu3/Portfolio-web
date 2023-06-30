@@ -54,7 +54,7 @@ export default function Project() {
                         animate="visible"
                     >
                         <Row className="gy-4">
-                            <Col lg={3}>
+                            <Col lg={3} md={6} sm={12}>
                                 <motion.div
                                     variants={item}
                                 >
@@ -63,7 +63,7 @@ export default function Project() {
                                         image='CPrj2'></ProjectCard>
                                 </motion.div>
                             </Col>
-                            <Col lg={3}>
+                            <Col lg={3} md={6} sm={12}>
                                 <motion.div
                                     variants={item}
                                 >
@@ -73,7 +73,7 @@ export default function Project() {
                                     ></ProjectCard>
                                 </motion.div>
                             </Col>
-                            <Col lg={3}>
+                            <Col lg={3} md={6} sm={12}>
                                 <motion.div
                                     variants={item}
                                 >
@@ -82,7 +82,7 @@ export default function Project() {
                                         image='web422S'></ProjectCard>
                                 </motion.div>
                             </Col>
-                            <Col lg={3}>
+                            <Col lg={3} md={6} sm={12}>
                                 <motion.div
                                     variants={item}
                                 >
