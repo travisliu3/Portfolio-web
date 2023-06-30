@@ -286,3 +286,7 @@ a.article:hover {
     background-color: rgb(45, 44, 44);
     color: rgb(169, 178, 206);
 }
+
+.dark-mode td {
+    color: rgb(169, 178, 206);
+}
