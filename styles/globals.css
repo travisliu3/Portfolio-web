@@ -239,3 +239,50 @@ a.article:hover {
     }
 
 }
+
+#switch {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+#switchlable {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 50px;
+    height: 25px;
+    background: grey;
+    display: block;
+    border-radius: 100px;
+    position: relative;
+}
+
+#switchlable:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 14.5px;
+    height: 14.5px;
+    background: #fff;
+    border-radius: 14.5px;
+    transition: 0.3s;
+}
+
+#switch:checked+label {
+    background: #0d0d0d;
+}
+
+#switch:checked+label:after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+}
+
+#switchlable:active:after {
+    width: 13px;
+}
+
+.dark-mode {
+    background-color: rgb(45, 44, 44);
+    color: rgb(169, 178, 206);
+}

@@ -28,7 +28,7 @@ export default function ProjectCard(props) {
                 <Image variant="top" src={image} width={286} height={200} />
                 <Card.Body>
                     <Card.Title>{props.title}</Card.Title>
-                    <Card.Text>
+                    <Card.Text className="fs-6">
                         {props.prjDes}
                     </Card.Text>
                     <Link href={props.project} target="_blank" passHref>

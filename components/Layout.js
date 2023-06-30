@@ -17,8 +17,13 @@ export default function Layout(props) {
     const path = usePathname();
     const [isWorkClicked, setisWorkClicked] = useState(true);
     const [isExpanded, setisExpanded] = useState(false);
+    const [isDark, setisDark] = useState(false);
 
     var waitTime = 100;
+
+    function darkMode() {
+        setisDark(dark => !dark)
+    }
 
     function listOfSkills() {
         clearInterval(intervalID);
@@ -78,7 +83,7 @@ export default function Layout(props) {
         <>
             {/* <Col lg={3} className='bg-light'> */}
             <PageWrapper>
-                <div class="wrapper">
+                <div class={isDark ? 'wrapper dark-mode' : 'wrapper'}>
                     {/* <!-- Sidebar Holder --> */}
                     <MainNav />
 
@@ -100,23 +105,23 @@ export default function Layout(props) {
                                     </Nav>
 
                                     <Nav>
-                                        <motion.div
-                                            whileHover={{ scale: 1.1 }}
-                                        >
-                                            <Link href="/" passHref legacyBehavior >
-                                                <Nav.Link className={`${'/' === path ? "fw-bold nav-link" : "nav-link"}`} href="/" onClick={handleNavLinkClick}>Home</Nav.Link>
-                                            </Link>
-                                        </motion.div>
                                         {!isExpanded ? ('') : (
                                             <motion.div
                                                 whileHover={{ scale: 1.1 }}
                                             >
-                                                <Link href="/about" passHref legacyBehavior >
-                                                    <Nav.Link className={`${'/about' === path ? "fw-bold nav-link" : "nav-link"}`} href="/about" onClick={handleNavLinkClick}>About</Nav.Link>
+                                                <Link href="/" passHref legacyBehavior >
+                                                    <Nav.Link className={`${'/' === path ? "fw-bold nav-link" : "nav-link"}`} href="/" onClick={handleNavLinkClick}>Home</Nav.Link>
                                                 </Link>
                                             </motion.div>
 
                                         )}
+                                        <motion.div
+                                            whileHover={{ scale: 1.1 }}
+                                        >
+                                            <Link href="/about" passHref legacyBehavior >
+                                                <Nav.Link className={`${'/about' === path ? "fw-bold nav-link" : "nav-link"}`} href="/about" onClick={handleNavLinkClick}>About</Nav.Link>
+                                            </Link>
+                                        </motion.div>
                                         <motion.div
                                             whileHover={{ scale: 1.1 }}
                                         >
@@ -128,8 +133,8 @@ export default function Layout(props) {
                                             <motion.div
                                                 whileHover={{ scale: 1.1 }}
                                             >
-                                                <Link href="/education" passHref legacyBehavior >
-                                                    <Nav.Link className={`${'/education' === path ? "fw-bold nav-link" : "nav-link"}`} href="/education" onClick={handleNavLinkClick}>Education</Nav.Link>
+                                                <Link href="/service" passHref legacyBehavior >
+                                                    <Nav.Link className={`${'/service' === path ? "fw-bold nav-link" : "nav-link"}`} href="/service" onClick={handleNavLinkClick}>Services</Nav.Link>
                                                 </Link>
                                             </motion.div>
 
@@ -150,6 +155,7 @@ export default function Layout(props) {
                                         </motion.div>
                                     </Nav>
                                 </Navbar.Collapse>
+                                <input onClick={darkMode} type="checkbox" id="switch" /><label id='switchlable' for="switch">Toggle</label>
                             </Container>
                         </Navbar>
 

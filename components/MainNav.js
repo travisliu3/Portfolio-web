@@ -119,12 +119,12 @@ export default function MainNav() {
                         </Nav>
                     </Row>
                     <Row>
-                        <Nav className={`${'/education' === path ? "fw-bold me-auto" : "me-auto"}`}>
+                        <Nav className={`${'/service' === path ? "fw-bold me-auto" : "me-auto"}`}>
                             <motion.div
                                 whileHover={{ scale: 1.1 }}
                             >
-                                <Link href="/education" passHref legacyBehavior >
-                                    <Nav.Link href="/education" onClick={handleNavLinkClick}>Education</Nav.Link>
+                                <Link href="/service" passHref legacyBehavior >
+                                    <Nav.Link href="/service" onClick={handleNavLinkClick}>Services</Nav.Link>
                                 </Link>
                             </motion.div>
                         </Nav>

@@ -74,8 +74,6 @@ export default function Work() {
     return (
 
         <Container className='text-center'>
-            <br />
-            <br />
             <Row className="gy-4">
                 <h2>I have experience working in</h2>
             </Row>
