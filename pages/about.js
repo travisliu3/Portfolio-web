@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import Image from 'next/image';
 import Link from 'next/link';
+import TravisImage from '../public/Travis.jpg';
 
 export default function About() {
 
@@ -31,12 +32,7 @@ export default function About() {
                     </Button>
                 </Col>
                 <Col lg={5}>
-                    <Image
-                        src="/../public/C++2.png"
-                        width={450}
-                        height={200}
-                        alt="Picture of the author"
-                    />
+                    <Image variant="top" src={TravisImage} width={450} height={200} alt="Picture of the author" />
                 </Col>
             </Row>
             <br />

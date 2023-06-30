@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import styles from '@/styles/Home.module.css';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import Link from 'next/link';
+import TravisImage from '../public/TravisImage.jpg';
 
 const inter = Inter({ subsets: ['latin'] })
 /* <form action="https://formsubmit.co/anshgirdhar2002@gmail.com" method="POST">
@@ -18,7 +19,7 @@ export default function Home() {
       <Container className='text-center'>
         <Row>
           <Col>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Metropolitan_Museum_of_Art_%28The_Met%29_-_Central_Park%2C_NYC.jpg" alt="Travis picture" className="rounded-circle w-25 p-3" />
+            <Image variant="top" src={TravisImage} width={200} height={200} />
             <br />
             <br />
             <p>Hello I'm</p>
