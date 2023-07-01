@@ -19,13 +19,11 @@ export default function Contact() {
     <p>Message: ${data.message}</p>
     `
         let ethank = `
-        <p>Dear ${data.name}</p>
-        <br/>
-        <p>I hope this message finds you well. I wanted to take a moment to express my sincerest gratitude for taking the time to fill out the contact form on my website. Your interest in considering me for potential employment opportunities means a great deal to me.</p>
-        <p>I am truly honored that you have taken an interest in my skills, qualifications, and experiences. Your decision to reach out and explore the possibility of working together speaks volumes about your company and the values you uphold.</p>
-        <p>I assure you that I am eagerly looking forward to the opportunity to connect with you further. I am confident that my unique blend of skills, dedication, and enthusiasm would make a valuable contribution to your organization.</p>
-        <p>Once again, thank you for reaching out and expressing interest in my professional journey. I genuinely appreciate your consideration, and I am excited about the potential possibilities that lie ahead. I look forward to connecting with you soon to discuss how I can contribute to your team.</p>
-        <p>With gratitude,</p>
+        <p>Dear ${data.name},</p>
+        <p>Thank you for your interest in my professional journey. I greatly appreciate your consideration
+         and am excited about the potential possibilities ahead. I look forward to connecting with you soon
+          to discuss how I can contribute to your team.</p>
+        <p>Regards,</p>
         Travis Liu
     `
         Email.send({
