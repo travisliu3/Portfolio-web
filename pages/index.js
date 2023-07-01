@@ -4,7 +4,7 @@ import { Inter } from 'next/font/google';
 import styles from '@/styles/Home.module.css';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import Link from 'next/link';
-import TravisImage from '../public/TravisImage.jpg';
+import TravisImage from '../public/TravisImage.ico';
 
 const inter = Inter({ subsets: ['latin'] })
 /* <form action="https://formsubmit.co/anshgirdhar2002@gmail.com" method="POST">

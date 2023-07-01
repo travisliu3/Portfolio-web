@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import Image from 'next/image';
 import Link from 'next/link';
-import TravisImage from '../public/Travis.jpg';
+import TravisImage from '../public/Travis.ico';
 
 export default function About() {
 
