@@ -32,7 +32,7 @@ export default function About() {
                     </Button>
                 </Col>
                 <Col lg={5}>
-                    <Image variant="top" src={TravisImage} width={350} height={200} alt="Picture of the author" />
+                    <Image variant="top" src={TravisImage} width={300} height={150} alt="Picture of the author" />
                 </Col>
             </Row>
             <br />
