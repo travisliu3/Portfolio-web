@@ -47,7 +47,7 @@ export default function Education() {
                                 <td className='fw-bold'>Price</td>
                                 <td className='fs-2 fw-bold'>$100</td>
                                 <td className='fs-2 fw-bold'>$250</td>
-                                <td className='fs-2 fw-bold'>$600</td>
+                                <td className='fs-2 fw-bold'>$800</td>
                             </tr>
                             <tr>
                                 <td className='fw-bold'>Details</td>
@@ -89,13 +89,13 @@ export default function Education() {
                                 <td className='fw-bold'>Delivery Time</td>
                                 <td>3 days</td>
                                 <td>7 days</td>
-                                <td>14 days</td>
+                                <td>24 days</td>
                             </tr>
                             <tr>
                                 <td className='fw-bold'>Quick Delivery</td>
                                 <td>1 day($130)</td>
                                 <td>4 days($300)</td>
-                                <td>8 days($800)</td>
+                                <td>14 days($1000)</td>
                             </tr>
                         </tbody>
                     </table>
