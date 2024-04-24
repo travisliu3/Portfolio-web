@@ -129,17 +129,17 @@ export default function MainNav() {
                             </motion.div>
                         </Nav>
                     </Row>
-                    <Row>
-                        <Nav className={`${'/service' === path ? "fw-bold me-auto" : "me-auto"}`}>
-                            <motion.div
-                                whileHover={{ scale: 1.1 }}
-                            >
-                                <Link href="/service" passHref legacyBehavior >
-                                    <Nav.Link href="/service" onClick={handleNavLinkClick}>Services</Nav.Link>
-                                </Link>
-                            </motion.div>
-                        </Nav>
-                    </Row>
+                    // <Row>
+                    //     <Nav className={`${'/service' === path ? "fw-bold me-auto" : "me-auto"}`}>
+                    //         <motion.div
+                    //             whileHover={{ scale: 1.1 }}
+                    //         >
+                    //             <Link href="/service" passHref legacyBehavior >
+                    //                 <Nav.Link href="/service" onClick={handleNavLinkClick}>Services</Nav.Link>
+                    //             </Link>
+                    //         </motion.div>
+                    //     </Nav>
+                    // </Row>
                     <Row>
                         <Nav className={`${'/contact' === path ? "fw-bold me-auto" : "me-auto"}`}>
                             <motion.div
